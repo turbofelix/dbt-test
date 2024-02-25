@@ -17,3 +17,16 @@ dbt debug
 ## Models
 
 - Definitions of tables, views, .. as SQL Files
+
+
+## Materializations
+
+### view
+- views are not automatically dropped by dbt
+
+### table
+
+### Incremental
+- rebuild every incremental table with dbt run --full-refresh
+
+## Ephemeral
