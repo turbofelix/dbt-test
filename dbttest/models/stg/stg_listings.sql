@@ -1,5 +1,5 @@
 with raw_listings as (
-	select * from stg.listings
+	select * from {{ source('airbnb', 'listings') }}
 )
 SELECT 
 	id as listing_id,

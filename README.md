@@ -10,19 +10,30 @@
 docker-compose -f docker_compose.yaml up -d --build 
 ```
 
-3. Use poetry to create a virtual environment
+3. Access the shell inside the dbt docker container
 ```bash
-# creates venv under the hood and activates it
-poetry shell
+docker exec -it dbt bash
 ```
 
-4. Inside the poetry shell, initialize the database
+4. When running the first time, initialize the database
 ```bash
+# inside the dbt container
+cd ../data
 python init_db.py
+cd ../dbttest
 ```
-A view on the database is available on localhost:8080/ via pgAdmin
 
-5. Use dbt inside the poetry shell
+5. Check if dbt is configured correctly
 ```bash
+# inside the dbt container
+dbt debug
+# this will throw missing git error, which can be ignored
+```
+
+6. Start dbt
+```bash
+# inside the dbt container
 dbt run
 ```
+
+7. Access the database on localhost:8080/ via pgAdmin
