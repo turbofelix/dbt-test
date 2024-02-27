@@ -160,4 +160,8 @@ cython_debug/
 #.idea/
 
 # raw data
-data/raw/
+*.csv
+
+# dbt
+logs/
+dbttest/profiles/.user.yml

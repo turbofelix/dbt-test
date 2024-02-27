@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-host = os.getenv("DB_HOST")
-port = os.getenv("DB_PORT")
+host = "db"
+port = 5432
 db = os.getenv("POSTGRES_DB")
 user = os.getenv('POSTGRES_USER')
 password = os.getenv('POSTGRES_PASSWORD')
