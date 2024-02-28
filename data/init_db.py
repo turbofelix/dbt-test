@@ -61,6 +61,13 @@ def insert_data_from_csv(engine, csv_path, table_name):
 
     df = pd.read_csv(csv_path)
 
+    def convert_to_datetime(df, column_names=['updated_at', 'created_at']):
+        for column in column_names:
+            if column in df.columns:
+                df[column] = pd.to_datetime(df[column])
+        return df
+    df = convert_to_datetime(df)
+
     df.to_sql(table_name, engine, schema='stg', if_exists='replace', index=False)
 
 

@@ -8,13 +8,7 @@ ENV PYTHONFAULTHANDLER=1 \
   POETRY_CACHE_DIR='/var/cache/pypoetry' \
   POETRY_HOME='/usr/local'
 
-
-# Install curl
-RUN apt-get update && apt-get install -y curl
-
-# Install Poetry
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/app/poetry python3 -
-ENV PATH="$PATH:/app/poetry/bin"
+RUN pip install poetry
 
 # Copy only the files necessary for installing dependencies to cache the layers better
 COPY pyproject.toml poetry.lock ./
