@@ -20,4 +20,4 @@ select
     end as is_full_moon
 from fct_reviews as r
 left join full_moon_dates as fm
-on (to_date(r.review_date, 'YYYY-MM-DD') = fm.full_moon_date + make_interval(days => 1))
+on r.review_date = fm.full_moon_date + make_interval(days => 1)

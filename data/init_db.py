@@ -61,7 +61,7 @@ def insert_data_from_csv(engine, csv_path, table_name):
 
     df = pd.read_csv(csv_path)
 
-    def convert_to_datetime(df, column_names=['updated_at', 'created_at']):
+    def convert_to_datetime(df, column_names=['updated_at', 'created_at', 'date']):
         for column in column_names:
             if column in df.columns:
                 df[column] = pd.to_datetime(df[column])
